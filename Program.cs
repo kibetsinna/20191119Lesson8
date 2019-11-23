@@ -68,25 +68,37 @@ namespace HomeWork20191111_Lesson8
             }
             return sum;
         }
-        static void Array3(int[] arr1,int[] arr2,int[] arr3)
+        static void Array3(int[] arr1,out int[] arr2,out int[] arr3)
         {
             int x=0;
             int y=0;
             for (int i = 0; i < arr1.Length; i++)
             {
                 if (arr1[i] >= 0)
-                {
- 
-                    arr2[x] = arr1[i];
+        
                     x++;
-
+                else
+ 
+                    y++;
+ 
+            }
+            arr2 = new int[x];
+            arr3 = new int[y];
+            int j = 0;
+            int k = 0;
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                if (arr1[i] >= 0)
+                {
+                   arr2[j]=arr1[i];
+                   j++;
                 }
                 else
                 {
-                    arr3[y] = arr1[i];
-                    y++;
-  
+                    arr3[k] = arr1[i];
+                    k++;
                 }
+                    
 
             }
          
@@ -157,9 +169,9 @@ namespace HomeWork20191111_Lesson8
             Console.WriteLine("Exercise 7");
             Console.WriteLine("**********");
             int[] arr1 = { 1, 18, -5, 15, -7 };
-            int[] arr2 = new int[5];
-            int[] arr3 = new int[5];
-            Array3(arr1, arr2, arr3);
+            int[] arr2;
+            int[] arr3;
+            Array3(arr1, out arr2, out arr3);
             Console.ReadLine();
 
         }
